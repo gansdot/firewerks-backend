@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Confirmation</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background: #ffffff;
+            max-width: 600px;
+            margin: 40px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #f1c6c8 0%, #faded6 100%);
+            color: rgb(21, 2, 2);
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .order-summary {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .order-summary th {
+            text-align: left;
+            background: #f0f0f0;
+            padding: 8px;
+        }
+
+        .order-summary td {
+            padding: 8px;
+        }
+
+        .highlight {
+            color: #e53935;
+            font-weight: bold;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .container {
+                margin: 10px;
+            }
+
+            .content {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎆 Thank you for your order!</h1>
+        </div>
+        <div class="content">
+            <p>Hi ${order.user?.name || "Guest"},</p>
+            <p>Your order <b>#${order._id}</b> was placed on <b>${new Date(
+                    order.createdAt
+                    ).toLocaleString()}</b>.</p>
+
+            <table class="order-summary">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Qty</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${itemsHTML}
+                </tbody>
+            </table>
+
+            <p style="margin-top:20px;">
+                <b>Total Amount:</b> <span class="highlight">₹${order.total}</span>
+            </p>
+
+            <p>Your order is currently <b>${order.status}</b>.</p>
+            <p>We’ll send you another update when it ships.</p>
+        </div>
+        <div class="footer">
+            <p>© ${new Date().getFullYear()} Cracker Store | All rights reserved</p>
+        </div>
+    </div>
+</body>
+
+</html>
