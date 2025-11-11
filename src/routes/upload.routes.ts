@@ -12,8 +12,8 @@ const router = express.Router();
 console.log("upload directory nothing .... ", process.cwd());
 
 
-const uploadDir = path.join(process.cwd(), "/backend/uploads");
-//const uploadDir = path.join(process.cwd(), "uploads");
+//const uploadDir = path.join(process.cwd(), "/backend/uploads");
+const uploadDir = path.join(process.cwd(), "uploads");
 
 if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir);
 
@@ -33,7 +33,7 @@ const upload = multer({ storage });
 // POST /api/upload
 router.post("/", upload.single("image"), (req, res) => {
   console.log("upload directory nothing .... ", process.cwd());
-  console.log("upload directory __filename .... ", __filename);
+  //console.log("upload directory __filename .... ", __filename);
 
   if (!req.file) {
     return res.status(400).json({ message: "No file uploaded" });
