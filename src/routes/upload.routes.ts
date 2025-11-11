@@ -2,14 +2,16 @@ import express from "express";
 import multer from "multer";
 import path from "path";
 import fs from "fs";
+import { fileURLToPath } from 'url';
 
 const router = express.Router();
 
 // ensure uploads folder exists
 //const uploadDir = path.join(process.cwd(), "uploads");
+const __filename = fileURLToPath(import.meta.url);
 
 console.log("upload directory nothing .... ", process.cwd());
-
+console.log("upload directory __filename .... ", __filename);
 
 
 const uploadDir = path.join(process.cwd(), "../../uploads");
@@ -31,6 +33,8 @@ const upload = multer({ storage });
 
 // POST /api/upload
 router.post("/", upload.single("image"), (req, res) => {
+  console.log("upload directory nothing .... ", process.cwd());
+  console.log("upload directory __filename .... ", __filename);
 
   if (!req.file) {
     return res.status(400).json({ message: "No file uploaded" });
