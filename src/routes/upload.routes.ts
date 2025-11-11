@@ -7,14 +7,13 @@ import { fileURLToPath } from 'url';
 const router = express.Router();
 
 // ensure uploads folder exists
-//const uploadDir = path.join(process.cwd(), "uploads");
-const __filename = fileURLToPath(import.meta.url);
+const uploadDir = path.join(process.cwd(), "uploads");
+//const __filename = fileURLToPath(import.meta.url);
 
 console.log("upload directory nothing .... ", process.cwd());
-console.log("upload directory __filename .... ", __filename);
 
 
-const uploadDir = path.join(process.cwd(), "/backend/uploads");
+//const uploadDir = path.join(process.cwd(), "/backend/uploads");
 //const uploadDir = path.join(process.cwd(), "uploads");
 
 if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir);
