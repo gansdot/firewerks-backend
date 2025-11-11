@@ -1,1 +1,7 @@
+dist
 node_modules
+.env
+uploads/
+!uploads/banner1.png
+!uploads/banner2.png
+!uploads/banner3.png
