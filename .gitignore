@@ -1,6 +1,10 @@
 dist
 node_modules
 .env
+.env.local
+.env.production
+node_modules/
+dist/
 uploads/
 !uploads/banner1.png
 !uploads/banner2.png
