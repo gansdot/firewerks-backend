@@ -33,7 +33,7 @@ const upload = multer({ storage });
 
 // POST /api/upload
 router.post("/", upload.single("image"), (req, res) => {
-  console.log("upload directory nothing .... ", process.cwd());
+  console.log("upload directory nothing ...hello there. ", process.cwd());
   console.log("upload directory uploadDir .... ", uploadDir);
   if (!req.file) {
     return res.status(400).json({ message: "No file uploaded" });
