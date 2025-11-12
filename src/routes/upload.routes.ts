@@ -6,7 +6,10 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const router = express.Router();
-const uploadConfig = process.env.UPLOAD_DIR!;
+
+const uploadConfig = process.env.UPLOAD_DIR || "backend/uploads";;
+
+
 const uploadDir = path.join(process.cwd(), uploadConfig!);
 
 if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir!);
