@@ -23,7 +23,7 @@ if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir);
 // configure multer for local disk storage
 const storage = multer.diskStorage({
   destination: function (_req, _file, cb) {
-    cb(null, "uploads/");
+    cb(null, "backend/uploads/");
   },
   filename: function (_req, file, cb) {
     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
