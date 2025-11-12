@@ -1,11 +1,38 @@
-dist
-node_modules
+# === Node / Backend ===
+node_modules/
+dist/
+build/
 .env
 .env.local
 .env.production
-node_modules/
-dist/
+.env.development
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# === Frontend (Vite/React) ===
+.vite/
+.cache/
+coverage/
+*.local
+*.DS_Store
+*.swp
+
+# === OS / IDE ===
+.DS_Store
+Thumbs.db
+*.iml
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# === Uploads / Runtime Data ===
 uploads/
-!uploads/banner1.png
-!uploads/banner2.png
-!uploads/banner3.png
+backend/uploads/
+tmp/
+*.txt
+*.bak
